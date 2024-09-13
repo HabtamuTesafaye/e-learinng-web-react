@@ -1,0 +1,108 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* App container */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbar-custom {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  padding: 0.5rem 1rem; /* Increase the padding for height */
+}
+
+.navbar-brand .navbar-logo {
+  padding-left: 30px;
+  height: 80px; /* Adjust logo size */
+}
+
+/* Styling for active navbar link */
+.nav-link-custom.active {
+  color: #007bff; /* Change color to highlight the active link */
+  font-weight: bold; /* Ensure active link text is bold */
+  border-bottom: 2px solid #007bff; /* Add an underline or border */
+}
+
+/* Default styling for navbar links */
+.navbar-text .nav-link-custom {
+  color: #333; /* Dark text color for links */
+  font-size: 1.2rem; /* Increase font size of links */
+
+  font-weight: bold; /* Make text bold */
+  transition: color 0.3s ease, border-bottom 0.3s ease; /* Smooth transition effects */
+}
+
+/* Change color on hover */
+.navbar-text .nav-link-custom:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+
+.navbar-button {
+  border-radius: 20px; /* Rounded corners for buttons */
+  font-weight: 500; /* Slightly bold text for buttons */
+  font-size: 1rem; /* Increase font size of buttons */
+  padding: 0.5rem 1rem; /* Increase padding for buttons */
+}
+
+.navbar-button.me-2 {
+  margin-right: 0.5rem; /* Space between buttons */
+}
+
+.navbar-button:focus {
+  box-shadow: none; /* Remove default focus shadow */
+}
+
+
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+/* Footer Styles */
+.footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 40px 0;
+  text-align: center;
+  width: 100%;
+  margin-top: auto; /* Push footer to bottom */
+}
+
+.footer h5 {
+  margin-bottom: 20px;
+  font-size: 1.25rem;
+}
+
+.footer p {
+  margin-bottom: 10px;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+.footer .list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}

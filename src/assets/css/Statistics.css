@@ -1,0 +1,31 @@
+.statistics {
+    background-color: #f1eded; /* Slightly darker gray for contrast */
+    padding: 60px 15px; /* Adjust padding as needed */
+    width: 100%; /* Full width of the viewport */
+    min-height: 100vh; /* Minimum height of the section */
+    box-sizing: border-box; /* Ensure padding is included in the total width */
+    display: flex;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+  }
+  
+  .statistics .container {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Full height of the section */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; /* Center content vertically */
+  }
+  
+  .statistics h2 {
+    margin-bottom: 2rem; /* Optional: adds spacing below the heading */
+  }
+  
+  .statistics h3 {
+    margin: 1rem 0; /* Optional: adds spacing above and below the value */
+  }
+  
+  .statistics p {
+    color: #555; /* Optional: adjust text color for better contrast */
+  }
+  
