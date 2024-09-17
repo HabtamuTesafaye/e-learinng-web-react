@@ -6,7 +6,7 @@ import coverImage from '../../assets/images/cover1.jpg'; // Import the image
 const IntroSection = () => {
   return (
     <section className="intro-section">
-      <Container fluid className="h-100">
+      <Container fluid className="h-100 m-0">
         <Row className="align-items-center h-100">
           <Col md={5} className="text-container">
             <h1>Welcome to Our Learning Platform</h1>

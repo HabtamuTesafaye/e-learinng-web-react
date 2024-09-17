@@ -1,31 +1,28 @@
 .statistics {
-    background-color: #f1eded; /* Slightly darker gray for contrast */
-    padding: 60px 15px; /* Adjust padding as needed */
-    width: 100%; /* Full width of the viewport */
-    min-height: 100vh; /* Minimum height of the section */
-    box-sizing: border-box; /* Ensure padding is included in the total width */
-    display: flex;
-    align-items: center; /* Center content vertically */
-    justify-content: center; /* Center content horizontally */
-  }
-  
-  .statistics .container {
-    display: flex;
-    flex-direction: column;
-    height: 100%; /* Full height of the section */
-    align-items: center; /* Center content horizontally */
-    justify-content: center; /* Center content vertically */
-  }
-  
-  .statistics h2 {
-    margin-bottom: 2rem; /* Optional: adds spacing below the heading */
-  }
-  
-  .statistics h3 {
-    margin: 1rem 0; /* Optional: adds spacing above and below the value */
-  }
-  
-  .statistics p {
-    color: #555; /* Optional: adjust text color for better contrast */
-  }
-  
+  background-color: #f1eded; /* Slightly darker gray for contrast */
+  min-height: 100vh;
+  width: 100%; /* Full width of the viewport */
+  padding-top: 50px; /* Adjust padding as needed */
+  padding-bottom: 0; /* Ensure no extra space at the bottom */
+  box-sizing: border-box; /* Ensure padding is included in the total width */
+  display: flex;
+  flex-direction: column;
+  position: relative; /* Allow absolute positioning for child elements */
+  z-index: 1; /* Ensure it's above other elements */
+  overflow: hidden; /* Prevent overflow issues */
+}
+
+.stat {
+  background-image: url('../../assets/images/thick_green_wave_v2_4x.svg'); /* Path to the background image */
+  background-size: cover; /* Ensure the background image covers the div */
+  background-repeat: no-repeat;
+  background-position: bottom center; /* Position the background image */
+  display: flex;
+  position: relative;
+  z-index: 1;
+  flex-direction: column;
+  padding-top: 130px; /* Adjust padding as needed */
+  width: 100%; /* Full width to fit within the parent */
+  box-sizing: border-box; /* Ensure padding is included in the total width */
+  overflow: hidden; /* Prevent overflow issues */
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col, Form, Button, Accordion, Card } from 'react-bootstrap';
 import CourseCard from './CourseCard';
 
 // Import course images
@@ -14,7 +14,6 @@ import Psychology from '../assets/images/psychology.jpg';
 
 // Main component to render all course cards
 const Courses = () => {
-  // Use useMemo to memoize the courses data
   const allCourses = useMemo(() => [
     {
       title: 'Algebra',
@@ -80,9 +79,9 @@ const Courses = () => {
       year: '2021',
       major: 'Humanities',
     },
-  ], []); // Memoize the courses data
 
-  // State to manage filters
+  ], []);
+
   const [filters, setFilters] = useState({
     subject: [],
     year: [],
@@ -91,7 +90,6 @@ const Courses = () => {
 
   const [filteredCourses, setFilteredCourses] = useState(allCourses);
 
-  // Function to handle checkbox changes
   const handleFilterChange = (e) => {
     const { name, value, checked } = e.target;
     setFilters((prevFilters) => {
@@ -105,11 +103,9 @@ const Courses = () => {
     });
   };
 
-  // Filter courses when filters are updated
   useEffect(() => {
     let updatedCourses = allCourses;
 
-    // Apply filtering logic
     if (filters.subject.length) {
       updatedCourses = updatedCourses.filter((course) => filters.subject.includes(course.subject));
     }
@@ -121,9 +117,8 @@ const Courses = () => {
     }
 
     setFilteredCourses(updatedCourses);
-  }, [filters, allCourses]); // Depend only on filters and memoized allCourses
+  }, [filters, allCourses]);
 
-  // Extract unique filter options
   const subjects = [...new Set(allCourses.map((course) => course.subject))];
   const years = [...new Set(allCourses.map((course) => course.year))];
   const majors = [...new Set(allCourses.map((course) => course.major))];
@@ -133,63 +128,73 @@ const Courses = () => {
       <Row className="my-5">
         <Col md={3}>
           <h2>Filter Courses</h2>
-          <Form>
-            {/* Subject Filters */}
-            <Form.Group controlId="filterSubject">
-              <Form.Label>Subject</Form.Label>
-              {subjects.map((subject) => (
-                <Form.Check
-                  key={subject}
-                  type="checkbox"
-                  label={subject}
-                  name="subject"
-                  value={subject}
-                  checked={filters.subject.includes(subject)}
-                  onChange={handleFilterChange}
-                />
-              ))}
-            </Form.Group>
+          <Accordion defaultActiveKey="0">
+            <Accordion.Item eventKey="0">
+              <Accordion.Header>Subjects</Accordion.Header>
+              <Accordion.Body>
+                <div className="filter-grid">
+                  {subjects.map((subject) => (
+                    <Form.Check
+                      key={subject}
+                      type="checkbox"
+                      label={subject}
+                      name="subject"
+                      value={subject}
+                      checked={filters.subject.includes(subject)}
+                      onChange={handleFilterChange}
+                    />
+                  ))}
+                </div>
+              </Accordion.Body>
+            </Accordion.Item>
 
-            {/* Year Filters */}
-            <Form.Group controlId="filterYear" className="my-3">
-              <Form.Label>Year</Form.Label>
-              {years.map((year) => (
-                <Form.Check
-                  key={year}
-                  type="checkbox"
-                  label={year}
-                  name="year"
-                  value={year}
-                  checked={filters.year.includes(year)}
-                  onChange={handleFilterChange}
-                />
-              ))}
-            </Form.Group>
+            <Accordion.Item eventKey="1">
+              <Accordion.Header>Years</Accordion.Header>
+              <Accordion.Body>
+                <div className="filter-grid">
+                  {years.map((year) => (
+                    <Form.Check
+                      key={year}
+                      type="checkbox"
+                      label={year}
+                      name="year"
+                      value={year}
+                      checked={filters.year.includes(year)}
+                      onChange={handleFilterChange}
+                    />
+                  ))}
+                </div>
+              </Accordion.Body>
+            </Accordion.Item>
 
-            {/* Major Filters */}
-            <Form.Group controlId="filterMajor">
-              <Form.Label>Major</Form.Label>
-              {majors.map((major) => (
-                <Form.Check
-                  key={major}
-                  type="checkbox"
-                  label={major}
-                  name="major"
-                  value={major}
-                  checked={filters.major.includes(major)}
-                  onChange={handleFilterChange}
-                />
-              ))}
-            </Form.Group>
+            <Accordion.Item eventKey="2">
+              <Accordion.Header>Majors</Accordion.Header>
+              <Accordion.Body>
+                <div className="filter-grid">
+                  {majors.map((major) => (
+                    <Form.Check
+                      key={major}
+                      type="checkbox"
+                      label={major}
+                      name="major"
+                      value={major}
+                      checked={filters.major.includes(major)}
+                      onChange={handleFilterChange}
+                    />
+                  ))}
+                </div>
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
 
+          <div className="d-flex justify-content-center mt-3 mb-5">
             <Button
               variant="primary"
-              className="mt-3"
               onClick={() => setFilters({ subject: [], year: [], major: [] })}
             >
               Clear Filters
             </Button>
-          </Form>
+          </div>
         </Col>
 
         <Col md={9}>
