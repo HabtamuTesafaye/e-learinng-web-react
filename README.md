@@ -9,5 +9,5 @@ Currently, two official plugins are available:
 
 Here is a video demonstrating the functionality of the application:
 ![Demo GIF](src/assets/images/demoGif.gif)
-s
+
 
